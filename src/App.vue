@@ -16,6 +16,6 @@ export default {
 }
 </script>
 
-<style>
-@import "./assets/common.less";
+<style lang="less">
+@import './assets/common.less';
 </style>

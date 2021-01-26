@@ -6,12 +6,9 @@
     </div>
     <div class="con">
       <ul class="list">
-        <li>1. javascript入门</li>
-        <li>2. 如何在项目中使用Element</li>
-        <li>3. javascript入门</li>
-        <li>4. 如何在项目中使用Element</li>
-        <li>5. javascript入门</li>
-        <li>6. 如何在项目中使用Element</li>
+        <li v-for="item in hotList" :key="item.id">
+          {{item}}
+        </li>
       </ul>
     </div>
   </div>
@@ -21,8 +18,16 @@
 export default {
   data() {
     return {
-
+      hotList: []
     };
+  },
+  created() {
+    this.fetchData();
+  },
+  methods: {
+    fetchData() {
+      //
+    }
   }
 }
 </script>

@@ -1,29 +1,42 @@
 <template>
   <div class="container">
     <div class="content">
-      <Article />
+      <BlogItem></BlogItem>
     </div>
     <div class="right">
       <Card />
       <Hot />
     </div>
+    <GoTop />
   </div>
 </template>
 
 <script>
-import Article from '../components/Article';
+import BlogItem from '../components/item/BlogItem';
 import Card from '../components/item/Card';
 import Hot from '../components/item/Hot';
+import GoTop from '../components/tool/GoTop';
 
 export default {
+  data() {
+    return {};
+  },
   components: {
-    Article,
+    BlogItem,
     Card,
-    Hot
+    Hot,
+    GoTop
   }
 }
 </script>
 
 <style lang="less" scoped>
-@import '../assets/home.less';
+.content {
+  flex: 1;
+  max-width: 66%;
+  margin-right: 40px;
+}
+.right {
+  width: 34%;
+}
 </style>
