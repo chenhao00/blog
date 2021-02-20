@@ -6,6 +6,13 @@
   "description": "my personal blog",
   "glyphs": [
     {
+      "icon_id": "161437",
+      "name": "new",
+      "font_class": "new",
+      "unicode": "e600",
+      "unicode_decimal": 58880
+    },
+    {
       "icon_id": "2681688",
       "name": "分类",
       "font_class": "fenlei",

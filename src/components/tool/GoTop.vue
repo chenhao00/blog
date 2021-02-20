@@ -53,6 +53,7 @@ export default {
   .iconfont {
     font-size: 40px;
     padding: 5px;
+    color: #fff;
     cursor: pointer;
   }
 }

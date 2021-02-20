@@ -1,13 +1,21 @@
 <template>
-  <div class="container">
+  <div class="container detail">
     <div class="content">
       <div class="title">{{this.form.title}}</div>
       <div v-html="this.form.contents" class="text"></div>
+    </div>
+    <div class="mess-wrap">
+      <Mess
+        :articleId="this.$route.params.id"
+        :commentSuccess="commentSuccess"
+        :mesList="form.comment">
+      </Mess>
     </div>
   </div>
 </template>
 
 <script>
+import Mess from '../components/common/Mess';
 
 export default {
   data() {
@@ -16,7 +24,7 @@ export default {
     };
   },
   components: {
-    //
+    Mess
   },
   created() {
     this.fetch();
@@ -30,6 +38,10 @@ export default {
       } else {
         this.$requestStatus(res);
       }
+    },
+    // 留言成功
+    commentSuccess() {
+      this.fetch();
     }
   }
 }
@@ -37,19 +49,4 @@ export default {
 
 <style lang="less" scoped>
 @import '../assets/blogDetail.less';
-.content {
-  .title {
-    font-size: 28px;
-    font-weight: 400;
-    text-align: center;
-    margin-bottom: 15px;
-  }
-  .text {
-    overflow: hidden;
-    margin-bottom: 50px;
-    img {
-      width: 100%;
-    }
-  }
-}
 </style>

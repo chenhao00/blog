@@ -5,7 +5,12 @@
     </div>
     <div class="right">
       <Card />
-      <Hot />
+      <Ranking
+        :type="1"
+        :title="hotTitle" />
+      <Ranking
+        :type="2"
+        :title="recentTitle" />
     </div>
     <GoTop />
   </div>
@@ -14,17 +19,20 @@
 <script>
 import BlogItem from '../components/item/BlogItem';
 import Card from '../components/item/Card';
-import Hot from '../components/item/Hot';
+import Ranking from '../components/item/Ranking';
 import GoTop from '../components/tool/GoTop';
 
 export default {
   data() {
-    return {};
+    return {
+      hotTitle: '热门排行',
+      recentTitle: '最新排行'
+    };
   },
   components: {
     BlogItem,
     Card,
-    Hot,
+    Ranking,
     GoTop
   }
 }

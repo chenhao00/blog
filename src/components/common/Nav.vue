@@ -29,13 +29,13 @@ export default {
         icon: 'zhuye',
         link: '/'
       }, {
-        name: '分类',
-        icon: 'fenlei',
-        link: '/classify'
-      }, {
         name: '标签',
         icon: 'biaoqian',
         link: '/tag'
+      }, {
+        name: '分类',
+        icon: 'fenlei',
+        link: '/classify'
       }, {
         name: '留言板',
         icon: 'liuyanban',
@@ -63,7 +63,7 @@ export default {
     top: 0;
     left: 0;
     width: 100%;
-    background-color: #fcfcfc;
+    background-color: #fafafa;
     box-shadow: 0px 5px 5px #999;
     height: 60px;
     line-height: 60px;
@@ -91,6 +91,7 @@ export default {
             margin-right: 20px;
             a {
               color: inherit;
+              font-weight: 350;
               i {
                 font-size: 18px;
                 margin-right: 6px;

@@ -2,11 +2,21 @@
 
 .message {
   flex-direction: column;
+  box-shadow: 0 0 8px #c7c7c7;
+  padding: 30px 40px;
+  margin-bottom: 40px;
+  background-color: #fff;
+  opacity: .9;
   .title {
-    text-align: center;
     font-weight: 400;
-    font-size: 18px;
+    font-size: 16px;
     margin-bottom: 15px;
+  }
+  .mes-title {
+    text-align: center;
+    font-weight: 500;
+    font-size: 20px;
+    margin-bottom: 20px;
   }
   .rich-wrap {
     position: relative;
@@ -36,24 +46,57 @@
     ul {
       li {
         display: flex;
-        justify-content: space-between;
-        padding: 30px 12px;
+        padding: 25px 12px 25px 0;
         .borderBottom1px(#c7c7c7);
-        .main {
-          flex: 1;
-          .name {
-            font-size: 14px;
-            margin-bottom: 5px;
-          }
-        }
-        .date {
-          font-size: 12px;
-          color: #666;
-          width: 130px;
-          text-align: right;
-        }
         &:last-child:after {
           display: none;
+        }
+        .avator {
+          width: 40px;
+          height: 40px;
+          border-radius: 50%;
+          text-align: center;
+          line-height: 40px;
+          margin-right: 12px;
+          background-color: #e0e0e0;
+          color: #fff;
+          font-weight: 400;
+        }
+        .con {
+          flex: 1;
+          .self {
+            display: flex;
+            justify-content: space-between;
+            .main {
+              flex: 1;
+              .name {
+                font-size: 14px;
+                margin-bottom: 10px;
+              }
+              .content {
+                /deep/ img {
+                  max-width: 100%;
+                  max-height: 100px;
+                }
+              }
+            }
+            .date {
+              font-size: 12px;
+              color: #666;
+              width: 130px;
+              text-align: right;
+            }
+          }
+          .replay {
+            display: flex;
+            margin-top: 15px;
+            padding-top: 20px;
+            .borderTop1px(#c7c7c7);
+            .xieti {
+              font-weight: 400;
+              font-style: italic;
+            }
+          }
         }
       }
     }

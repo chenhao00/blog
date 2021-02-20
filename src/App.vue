@@ -1,5 +1,6 @@
 <template>
   <div id="app">
+    <AnimalBg />
     <Nav />
     <router-view/>
   </div>
@@ -7,11 +8,13 @@
 
 <script>
 import Nav from './components/common/Nav';
+import AnimalBg from './components/common/AnimalBg';
 
 export default {
   name: 'App',
   components: {
-    Nav
+    Nav,
+    AnimalBg
   }
 }
 </script>

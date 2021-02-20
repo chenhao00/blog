@@ -14,17 +14,12 @@
           </div>
           <div class="sub">
             <div class="top">
-              <div><i class="iconfont icon-rili"></i>{{item.createTime}}</div>
-              <div><i class="iconfont icon-kanguo"></i>{{item.scan}}</div>
+              <div><i class="iconfont icon-rili"></i>{{item.createTime | formateDate}}</div>
+              <div><i class="iconfont icon-kanguo"></i>{{item.scan || 0}}</div>
               <!-- <div><i class="iconfont icon-zan"></i></div> -->
             </div>
             <div class="bottom">
-              <div class="left">
-                分类专栏：
-                <span v-for="itemChild in item.classify" :key="itemChild.id">{{itemChild}}</span>
-              </div>
-              标签：
-              <span v-for="itemChild in item.articleTags" :key="itemChild.id">{{itemChild}}</span>
+              分类专栏：<span class="classifyName">{{item.classifyName}}</span> 标签：<span v-for="itemChild in item.articleTags" :key="itemChild.id">{{itemChild}}</span>
             </div>
           </div>
         </div>
