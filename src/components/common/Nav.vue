@@ -1,5 +1,5 @@
 <template>
-  <div class="container">
+  <div class="nav">
     <div class="wrap">
       <div class="nav">
         <div class="user">Halo</div>
@@ -9,8 +9,9 @@
               v-for="item in itemList"
               :key="item.id"
             >
-              <i class="iconfont" :class="'icon-' + item.icon"></i>
-              {{item.name}}
+              <router-link :to="item.link">
+                <i class="iconfont" :class="'icon-' + item.icon"></i>{{item.name}}
+              </router-link>
             </li>
           </ul>
         </div>
@@ -25,16 +26,24 @@ export default {
     return {
       itemList: [{
         name: '首页',
-        icon: 'zhuye'
+        icon: 'zhuye',
+        link: '/'
+      }, {
+        name: '标签',
+        icon: 'biaoqian',
+        link: '/tag'
       }, {
         name: '分类',
-        icon: 'comiisbiaoqian'
+        icon: 'fenlei',
+        link: '/classify'
       }, {
         name: '留言板',
-        icon: 'liuyanban'
+        icon: 'liuyanban',
+        link: '/message'
       }, {
         name: '关于',
-        icon: 'geren'
+        icon: 'geren',
+        link: '/aboutMe'
       }]
     };
   },
@@ -46,7 +55,7 @@ export default {
 
 <style lang="less" scoped>
 @import '../../assets/base.less';
-.container {
+.nav {
   position: relative;
   height: 60px;
   .wrap {
@@ -54,10 +63,12 @@ export default {
     top: 0;
     left: 0;
     width: 100%;
-    background-color: #fcfcfc;
+    background-color: #fafafa;
     box-shadow: 0px 5px 5px #999;
     height: 60px;
     line-height: 60px;
+    z-index: 11;
+    min-width: 800px;
     .nav {
       display: flex;
       align-items: center;
@@ -76,9 +87,15 @@ export default {
             text-align: center;
             display: flex;
             align-items: center;
-            i {
-              font-size: 18px;
-              margin-right: 5px;
+            cursor: pointer;
+            margin-right: 20px;
+            a {
+              color: inherit;
+              font-weight: 350;
+              i {
+                font-size: 18px;
+                margin-right: 6px;
+              }
             }
           }
         }

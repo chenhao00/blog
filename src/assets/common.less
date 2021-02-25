@@ -1,7 +1,38 @@
-@import './reset.less';
-
 body {
-  min-width: 680px;
-  font-weight: 200;
+  font-weight: 400;
   line-height: 1.5;
+}
+
+//transition fade样式
+.fade-enter-active, .fade-leave-active {
+  transition: opacity .2s;
+}
+.fade-enter, .fade-leave-to {
+  opacity: 0;
+}
+
+//容器
+.container {
+  width: 70%;
+  margin: 0 auto;
+  min-width: 800px;
+  display: flex;
+  margin-top: 40px;
+}
+
+//提交按钮
+.submit-btn {
+  font-size: 16px;
+  color: #fff;
+  background-color: #5485eb;
+  border-radius: 4px;
+  padding: 8px 25px;
+  font-weight: 400;
+  cursor: pointer;
+}
+
+.noWrap {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
