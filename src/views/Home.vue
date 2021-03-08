@@ -7,9 +7,11 @@
       <Card />
       <Ranking
         :type="1"
+        icon="remen"
         :title="hotTitle" />
       <Ranking
         :type="2"
+        icon="new"
         :title="recentTitle" />
     </div>
     <GoTop />
@@ -34,17 +36,22 @@ export default {
     Card,
     Ranking,
     GoTop
+  },
+  created() {
+    // 先隐藏底部foot再加载数据
+    this.$bus.$emit('hideFoot');
   }
 }
 </script>
 
 <style lang="less" scoped>
 .content {
-  flex: 1;
-  max-width: 66%;
-  margin-right: 40px;
+  width: 66%;
+  box-sizing: border-box;
+  padding-right: 40px;
 }
 .right {
+  box-sizing: border-box;
   width: 34%;
 }
 </style>

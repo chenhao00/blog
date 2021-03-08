@@ -36,6 +36,8 @@ export default {
     GoTop
   },
   created() {
+    // 先隐藏底部foot再加载数据
+    this.$bus.$emit('hideFoot');
     this.fetchData();
   },
   methods: {
@@ -50,6 +52,7 @@ export default {
     },
     // 分类查询
     filterClassify(item) {
+      this.$bus.$emit('hideFoot');
       this.classifyItem = item;
       this.$refs.child.fetchData('filter', item);
     }

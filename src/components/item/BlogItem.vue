@@ -1,5 +1,6 @@
 <template>
   <div class="blogItem">
+    <loading v-if="isLoading" />
     <ul class="article">
       <li v-for="item in blogList" :key="item.id">
         <div class="main" @click="detail(item._id)">
@@ -30,19 +31,30 @@
         infinite-scroll-distance="10">
       </div>
     </ul>
+    <div class="more" v-if="!isLoading">
+      <div v-if="page === totalPage && isLast">没有更多了～</div>
+      <Loading v-else />
+    </div>
   </div>
 </template>
 
 <script>
+import Loading from '../tool/Loading';
+
 export default {
   data() {
     return {
       blogList: [],
       busy: false,
       page: 0,
-      pageSize: 6,
-      totalPage: 0
+      pageSize: 4,
+      totalPage: 0,
+      isLoading: true,
+      isLast: false
     };
+  },
+  components: {
+    Loading
   },
   props: {
     classifyItem: {
@@ -55,22 +67,32 @@ export default {
   },
   methods: {
     loadMore() {
-      this.page += 1;
       this.busy = true;
-      this.fetchData(null, this.classifyItem || '');
+      setTimeout(() => {
+        this.page += 1;
+        this.fetchData(null, this.classifyItem || '');
+      }, 500);
     },
     async fetchData(type, classifyItem) {
       if (type) {
+        this.isLoading = true;
         this.page = 1;
         this.blogList = [];
       }
       const path = `/api/v1/admin/article?page=${this.page}&pageSize=${this.pageSize}&classifyName=${classifyItem}`;
       const res = await this.$http.get(path);
       if (res.code === 0) {
-        this.page = res.data.page;
-        this.totalPage = res.data.totalPages;
-        this.blogList = this.blogList.concat(res.data.list);
-        this.busy = this.page === this.totalPage || this.totalPage === 1;
+        setTimeout(() => {
+          this.isLoading = false;
+          this.page = res.data.page;
+          this.totalPage = res.data.totalPages;
+          this.blogList = this.blogList.concat(res.data.list);
+          this.busy = this.isLast = this.page === this.totalPage || this.totalPage === 1;
+          // 滑到最底部时才展示出foot
+          if (this.isLast) {
+            this.$bus.$emit('showFoot');
+          }
+        }, 500);
       } else {
         this.$requestStatus(res);
       }
@@ -78,6 +100,7 @@ export default {
     // 查看博客详情
     detail(id) {
       this.calScanCount(id);
+      this.$bus.$emit('showFoot');
       this.$router.push(`/detail/${id}`);
     },
     // 获取点击量

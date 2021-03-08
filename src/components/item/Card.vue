@@ -6,11 +6,11 @@
     </div>
     <div class="con">
       <ul class="info">
-        <!-- <li>网名：陈浩南</li>
+        <li>网名：陈浩南</li>
         <li>职业：前端开发工程师</li>
         <li>现居地：广东深圳</li>
         <li>微信：chen137693</li>
-        <li>手机号：18576795040</li> -->
+        <li>手机号：18576795040</li>
       </ul>
     </div>
   </div>
@@ -31,6 +31,9 @@ export default {
 .card {
   .info {
     line-height: 27px;
+    font-size: 15px;
+    color: #666;
+    font-weight: 400;
   }
 }
 </style>

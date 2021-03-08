@@ -50,10 +50,11 @@ export default {
   position: fixed;
   bottom: 10px;
   right: 10px;
+  z-index: 10;
   .iconfont {
     font-size: 40px;
     padding: 5px;
-    color: #fff;
+    color: #FF7256;
     cursor: pointer;
   }
 }

@@ -1,5 +1,5 @@
 <template>
-  <div class="container">
+  <div class="container" v-cloak>
     <div class="message-wrap">
       <Mess
         :commentSuccess="commentSuccess"
@@ -16,7 +16,8 @@ export default {
   name: 'Message',
   data() {
     return {
-      list: []
+      list: [],
+      ab: true
     };
   },
   components: {
@@ -50,6 +51,9 @@ export default {
 
 <style lang="less" scoped>
 @import '../assets/message.less';
+[v-cloak] {
+  display: none;
+}
 .message-wrap {
   width: 100%;
 }
