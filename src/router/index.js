@@ -1,6 +1,12 @@
 import Vue from 'vue';
 import Router from 'vue-router';
 
+// push时二次点击报错配置
+const originalPush = Router.prototype.push;
+Router.prototype.push = function push(location) {
+  return originalPush.call(this, location).catch(err => err)
+};
+
 const Home = () => import('../views/Home'); // 首页
 const BlogDetail = () => import('../views/BlogDetail'); // 博客详情页
 const Classify = () => import('../views/Classify'); // 文章分类

@@ -9,9 +9,9 @@
               v-for="item in itemList"
               :key="item.id"
             >
-              <router-link :to="item.link">
+              <span @click="go(item.link)">
                 <i class="iconfont" :class="'icon-' + item.icon"></i>{{item.name}}
-              </router-link>
+              </span>
             </li>
           </ul>
         </div>
@@ -47,8 +47,16 @@ export default {
       }]
     };
   },
+  // inject: ['reload'],
   created() {
 
+  },
+  methods: {
+    go(link) {
+      this.$router.push(link);
+      this.$bus.$emit('showFoot');
+      // this.reload();
+    }
   }
 }
 </script>
@@ -89,7 +97,7 @@ export default {
             align-items: center;
             cursor: pointer;
             margin-right: 20px;
-            a {
+            span {
               color: inherit;
               font-weight: 350;
               i {

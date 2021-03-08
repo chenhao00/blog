@@ -1,5 +1,6 @@
 <template>
   <div class="container">
+    <transition name="fade">
     <div class="tag-wrap">
       <span
         v-for="item in tagsData"
@@ -8,6 +9,7 @@
         {{item.name}}
       </span>
     </div>
+    </transition>
   </div>
 </template>
 
@@ -35,9 +37,8 @@ export default {
 <style lang="less" scoped>
 .tag-wrap {
   width: 80%;
-  margin: 0 auto;
+  margin: 20px auto;
   line-height: 56px;
-  margin-top: 5%;
   span {
     font-weight: 400;
   }

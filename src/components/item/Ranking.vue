@@ -1,7 +1,7 @@
 <template>
   <div class="ranking item">
     <div class="title">
-      <i class="iconfont icon-remen"></i>
+      <i class="iconfont" :class="'icon-' + icon"></i>
       <span>{{title}}</span>
     </div>
     <div class="con">
@@ -23,6 +23,9 @@ export default {
   },
   props: {
     title: {
+      type: String
+    },
+    icon: {
       type: String
     },
     type: {
