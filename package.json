@@ -13,7 +13,7 @@
   "dependencies": {
     "@tinymce/tinymce-vue": "^3.2.3",
     "axios": "^0.21.1",
-    "moment": "^2.29.1",
+    "moment": "^2.29.2",
     "tinymce": "^5.5.1",
     "vue": "^2.5.2",
     "vue-infinite-scroll": "^2.0.2",
